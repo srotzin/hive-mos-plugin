@@ -30,13 +30,9 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "node --test src/__tests__/*.test.js",
-    "lint": "eslint src/"
+    "test": "node --test src/__tests__/*.test.js"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.57.0"
   }
 }
