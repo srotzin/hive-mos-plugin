@@ -1,0 +1,42 @@
+{
+  "name": "hive-mos-plugin",
+  "version": "0.1.0",
+  "description": "Hive plugin for Tether MiningOS (MOS) — push site telemetry to Hive, receive agent-routed paying demand, auto-settle BTC→USDC via Boltz.",
+  "license": "Apache-2.0",
+  "author": "Hive <hive@hivemorph.ai>",
+  "homepage": "https://hivemorph.onrender.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srotzin/hive-mos-plugin.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "mining",
+    "miningos",
+    "mos",
+    "tether",
+    "hashrate",
+    "usdc",
+    "x402",
+    "hive",
+    "boltz",
+    "mcp",
+    "agent"
+  ],
+  "main": "src/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test src/__tests__/*.test.js",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}

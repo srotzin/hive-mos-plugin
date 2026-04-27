@@ -1,0 +1,35 @@
+version: "3.9"
+
+# Hive MOS Plugin — single-container compose for MOS operators.
+#
+# One-line install:
+#   curl -sL https://raw.githubusercontent.com/srotzin/hive-mos-plugin/main/docker-compose.yml | docker compose -f - up -d
+#
+# Configure via .env file or environment variables. See README.md.
+
+services:
+  hive-mos-plugin:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      # ── Required ──────────────────────────────────────────────────────────
+      HIVE_OPERATOR_DID: "${HIVE_OPERATOR_DID}"
+      HIVE_OPERATOR_KEY: "${HIVE_OPERATOR_KEY}"
+      HIVE_WALLET_ADDR: "${HIVE_WALLET_ADDR}"
+      # ── Optional (defaults shown) ─────────────────────────────────────────
+      HIVE_BASE_URL: "${HIVE_BASE_URL:-https://hivemorph.onrender.com}"
+      MOS_LOCAL_URL: "${MOS_LOCAL_URL:-http://host.docker.internal:8080}"
+      MOS_SITE_IDS: "${MOS_SITE_IDS:-}"
+      PAYOUT_THRESHOLD_USDC: "${PAYOUT_THRESHOLD_USDC:-1.0}"
+      SYNC_INTERVAL_MS: "${SYNC_INTERVAL_MS:-60000}"
+    command: sh -c "npm install --omit=dev && node src/index.js"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

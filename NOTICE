@@ -1,0 +1,11 @@
+hive-mos-plugin
+Copyright 2026 Hive (https://hivemorph.onrender.com)
+
+This product includes software developed by Tether Operations Ltd.
+Tether MiningOS (MOS) is copyright Tether Operations Ltd., licensed Apache 2.0.
+MOS docs: https://docs.mos.tether.io
+
+This software uses or references:
+  - node-fetch (MIT) — https://github.com/node-fetch/node-fetch
+  - Boltz Exchange API (https://boltz.exchange) — used for BTC→USDC swaps
+  - x402 payment protocol — https://x402.org

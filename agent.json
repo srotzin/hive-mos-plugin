@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "https://schema.org",
+    "https://hivemorph.onrender.com/v1/a2a/context"
+  ],
+  "@type": "Service",
+  "name": "hive-mos-plugin",
+  "version": "0.1.0",
+  "description": "Hive plugin for Tether MiningOS (MOS) — push site telemetry to Hive, receive agent-routed paying demand, auto-settle BTC→USDC via Boltz.",
+  "url": "https://github.com/srotzin/hive-mos-plugin",
+  "provider": {
+    "@type": "Organization",
+    "name": "Hive",
+    "url": "https://hivemorph.onrender.com"
+  },
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "brand": {
+    "color": "#C08D23"
+  },
+  "capabilities": [
+    "mining-orchestrate",
+    "site-telemetry-sync",
+    "btc-to-usdc-settlement",
+    "operator-registration",
+    "earn-rails"
+  ],
+  "x402": {
+    "settle_chain": "base",
+    "settle_asset": "USDC",
+    "treasury": "0x15184bf50b3d3f52b60434f8942b7d52f2eb436e",
+    "routing_fee_rate": 0.02,
+    "pricing": {
+      "/v1/mining/orchestrate/register": {
+        "tier": "Tier3",
+        "price_usd": 0.05
+      },
+      "/v1/mining/orchestrate/sites/sync": {
+        "tier": "Tier3",
+        "price_usd": 0.05
+      },
+      "/v1/mining/orchestrate/sites": {
+        "tier": "Tier1",
+        "price_usd": 0.001
+      },
+      "/v1/mining/orchestrate/payouts": {
+        "tier": "Tier1",
+        "price_usd": 0.001
+      },
+      "/v1/mining/orchestrate/payouts/withdraw": {
+        "tier": "Tier3",
+        "price_usd": 0.05
+      }
+    }
+  },
+  "a2a": {
+    "card_url": "https://hivemorph.onrender.com/v1/mining/orchestrate/health",
+    "mcp_shim": "https://github.com/srotzin/hive-mcp-mining",
+    "catalog": "https://hivemorph.onrender.com/v1/earn/catalog"
+  },
+  "mos": {
+    "docs": "https://docs.mos.tether.io",
+    "license": "Apache-2.0",
+    "hardware_agnostic": true,
+    "supported_hardware": ["Antminer", "Whatsminer", "Auradine"]
+  }
+}
